@@ -64,7 +64,7 @@ check_expression("1+2]*[3*3+{4-5(6(7/8/9)+10)-11+(12*8)]+14")
 
 # TASK 2 LINKED LIST BASED STACK 
 
-class StackNode:
+class Node:
     def __init__(self, data=None):
         self.data = data
         self.next = None
@@ -75,7 +75,7 @@ class Stack:
         self.size = 0
  
     def push(self, data):
-        node = StackNode(data)
+        node = Node(data)
         if not self.top:
             self.top = node
         else:
