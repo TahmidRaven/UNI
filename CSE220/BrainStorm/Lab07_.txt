@@ -1,7 +1,3 @@
-Name: Nijaf Md. Ahanaf Rivan
-Id: 21301339
-
-
 
 ############### 1
 class KeyIndex:
