@@ -1,4 +1,4 @@
-with open("C:\\CODE\\TahmidRaven\\UNI\CSE221o\\input01a.txt", "r") as input01a, open("output01a.txt", "w") as output01a:
+with open("C:\\CODE\\TahmidRaven\\UNI\\CSE221o\\input01a.txt", "r") as input01a, open("output01a.txt", "w") as output01a:
     t = int(input01a.readline())
     for i in range(t):
         i = int(input01a.readline())
