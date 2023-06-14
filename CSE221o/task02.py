@@ -1,7 +1,7 @@
 with open("C:\\CODE\\TahmidRaven\\UNI\\CSE221o\\task02input01.txt", "r") as task02input01, open("C:\\CODE\\TahmidRaven\\UNI\\CSE221o\\task02output01.txt", "w") as task02output01:
     t = int(task02input01.readline())
     
-    arr = list(int(task02input01.readline()))
+    arr = list((task02input01.readline()))
     
     def bubble_sort(arr):
         n = len(arr)
