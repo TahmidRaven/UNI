@@ -1,9 +1,9 @@
-# For O(nlogn) Time complexity
+#Time complexity O(n). It utilizes a simple merge function to merge two lists. 
 
-input_file_path = "C:\\CODE\\TahmidRaven\\UNI\\CSE221venv\\LAB02\\task02_1_input.txt"
-output_file_path = "C:\\CODE\\TahmidRaven\\UNI\\CSE221venv\\LAB02\\task02_1_output.txt"
+input_file_path = "C:\\CODE\\TahmidRaven\\UNI\\CSE221venv\\LAB02\\task02_2_input.txt"
+output_file_path = "C:\\CODE\\TahmidRaven\\UNI\\CSE221venv\\LAB02\\task02_2_output.txt"
 
-def merge_sorted_ls(list1, list2):
+def merged(list1, list2):
     result = []
     pt01 = 0
     pt02 = 0
@@ -26,26 +26,15 @@ def merge_sorted_ls(list1, list2):
 
     return result
 
-
-def merge_sort(arr):
-    if len(arr) <= 1:
-        return arr
-
-    mid = len(arr) // 2
-    left = merge_sort(arr[:mid])
-    right = merge_sort(arr[mid:])
-
-    return merge_sorted_ls(left, right)
-
+# The time complexity of the merged function is: O(n+n+n) = O(3n) =  O(n).
 
 with open(input_file_path, "r") as f01, open(output_file_path, "w") as f02:
+  
     N = int(f01.readline())
     Alice_ls = list(map(int, f01.readline().split()))
     M = int(f01.readline())
     BOB_ls = list(map(int, f01.readline().split()))
-
-    merged_list = merge_sort(Alice_ls + BOB_ls)
+    
+    merged_list = merged(Alice_ls, BOB_ls)
 
     f02.write(' '.join(map(str, merged_list)))
-
-#
