@@ -8,7 +8,7 @@ def merged(ls01, ls02):
     pt01 = 0
     pt02 = 0
 
-    while pt01 < len(ls01) and pt02 < len(ls02):
+    while pt01 < len(ls01) and pt02 < len(ls02):  
         if ls01[pt01] <= ls02[pt02]:
             result.append(ls01[pt01])
             pt01 += 1
@@ -16,11 +16,11 @@ def merged(ls01, ls02):
             result.append(ls02[pt02])
             pt02 += 1
 
-    while pt01 < len(ls01):
+    while pt01 < len(ls01):              #merges the remaining elements  
         result.append(ls01[pt01])
         pt01 += 1
 
-    while pt02 < len(ls02):
+    while pt02 < len(ls02):              #merges the remaining elements  
         result.append(ls02[pt02])
         pt02 += 1
 
