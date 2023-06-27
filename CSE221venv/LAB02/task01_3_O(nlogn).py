@@ -14,6 +14,8 @@ def merge_sort(arr):
 
     return merge(left, right)
 
+# Merge_sort func takes and array recursively divides it into chunks until base case len(arr)<= 1 satisfied. 
+
 def merge(left, right):
     merged = []
     i = 0
@@ -27,11 +29,11 @@ def merge(left, right):
             merged.append(right[j])
             j += 1
 
-    while i < len(left):
+    while i < len(left):            #merges the remaining elements of the left subarr 
         merged.append(left[i])
         i += 1
 
-    while j < len(right):
+    while j < len(right):           #merges the remaining elements of the right subarr 
         merged.append(right[j])
         j += 1
 

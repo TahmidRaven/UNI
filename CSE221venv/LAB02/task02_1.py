@@ -1,4 +1,5 @@
-# For O(nlogn) Time complexity
+# For O(nlogn) Time complexity we use merge sort algo 
+# --> because merge sort has a time complexity of O(nlogn),
 
 input_file_path = "C:\\CODE\\TahmidRaven\\UNI\\CSE221venv\\LAB02\\task02_1_input.txt"
 output_file_path = "C:\\CODE\\TahmidRaven\\UNI\\CSE221venv\\LAB02\\task02_1_output.txt"

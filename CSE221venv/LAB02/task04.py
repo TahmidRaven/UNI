@@ -1,3 +1,5 @@
+# This code performs merge sort algorithm for which the time complexity would be O(nlogn). 
+
 input_file_path = "C:\\CODE\\TahmidRaven\\UNI\\CSE221venv\\LAB02\\task04_input.txt"
 output_file_path = "C:\\CODE\\TahmidRaven\\UNI\\CSE221venv\\LAB02\\task04_output.txt"
 
@@ -6,18 +8,20 @@ def merge_sort(arr):
         return arr
 
     mid = len(arr) // 2
-    left_half = merge_sort(arr[:mid])
-    right_half = merge_sort(arr[mid:])
+    leftSide = merge_sort(arr[:mid])
+    rightSide = merge_sort(arr[mid:])
 
-    return merge(left_half, right_half)
+    return merge(leftSide, rightSide)
 
+# merfe_sort func takes and array recursively divides it into chunks until base case len(arr)<= 1 
+# and it calls the merge function below which sorts the array recursively. 
 
 def merge(left, right):
     merged = []
     i = 0
     j = 0
 
-    while i < len(left) and j < len(right):
+    while i < len(left) and j < len(right): # loop checks which si greater and appends
         if left[i] <= right[j]:
             merged.append(left[i])
             i += 1
@@ -25,11 +29,11 @@ def merge(left, right):
             merged.append(right[j])
             j += 1
 
-    while i < len(left):
+    while i < len(left):                 #merges the remaining elements of the subarr 
         merged.append(left[i])
         i += 1
 
-    while j < len(right):
+    while j < len(right):                #does the same thing as above when right arr has elems
         merged.append(right[j])
         j += 1
 
@@ -39,9 +43,10 @@ with open(input_file_path, 'r') as f01:
     n = int(f01.readline().strip())
     arr = list(map(int, f01.readline().strip().split()))
 
-sorted_arr = merge_sort(arr)
+sortedArr = merge_sort(arr)
 
-max_value = sorted_arr[-1]
+max_value = sortedArr[-1]  #as it's the max value and it's at the end 
 
 with open(output_file_path, 'w') as f02:
     f02.write(str(max_value))
+
