@@ -19,11 +19,11 @@ output_file_path01 = "C:\\CODE\\TahmidRaven\\UNI\\CSE221venv\\LAB03\\task03_outp
 input_file_path02 = "C:\\CODE\\TahmidRaven\\UNI\\CSE221venv\\LAB03\\task03_input02.txt"
 output_file_path02 = "C:\\CODE\\TahmidRaven\\UNI\\CSE221venv\\LAB03\\task03_output02.txt"
 
-with open(input_file_path02, 'r') as f01:
+with open(input_file_path01, 'r') as f01:
     N = int(f01.readline())
     ls = list(map(int, f01.readline().split()))
-
+    
 QuickSort(ls, 0, N - 1)
 
-with open(output_file_path02, 'w') as f02:
+with open(output_file_path01, 'w') as f02:
     f02.write(' '.join(map(str, ls)))
