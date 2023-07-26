@@ -1,6 +1,6 @@
 def adj_matrix(N, M, edges):
     
-    adjacency_list = [[] for _ in range(N)]
+    adjacency_list = [[] for i in range(N)]
 
  
     for u, v, w in edges:
@@ -15,7 +15,7 @@ output_file_path = "C:\\CODE\\TahmidRaven\\UNI\\CSE221venv\\LAB04\\task01_b_outp
 with open(input_file_path, 'r') as F01:
     N, M = map(int, F01.readline().split())
     edges = []
-    for _ in range(M):
+    for i in range(M):
         u, v, w = map(int, F01.readline().split())
         edges.append((u, v, w))
 

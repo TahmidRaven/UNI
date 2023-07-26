@@ -25,8 +25,8 @@ output_file_path = "C:\\CODE\\TahmidRaven\\UNI\\CSE221venv\\LAB04\\task02_output
  
 with open(input_file_path, 'r') as F01:
     N, M = map(int, F01.readline().split())
-    adj_list = [[] for _ in range(N)]
-    for _ in range(M):
+    adj_list = [[] for i in range(N)]
+    for i in range(M):
         u, v = map(int, F01.readline().split())
         adj_list[u-1].append(v-1)
         adj_list[v-1].append(u-1)

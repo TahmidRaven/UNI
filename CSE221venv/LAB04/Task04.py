@@ -17,11 +17,11 @@ def FindMyCycle(graph, v, visited, stack):
     visited[v] = True
     stack[v] = True
 
-    for neighbor in graph[v]:
-        if not visited[neighbor]:
-            if FindMyCycle(graph, neighbor, visited, stack):
+    for myNeighbor in graph[v]:
+        if not visited[myNeighbor]:
+            if FindMyCycle(graph, myNeighbor, visited, stack):
                 return True
-        elif stack[neighbor]:
+        elif stack[myNeighbor]:
             return True
 
     stack[v] = False

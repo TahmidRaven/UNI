@@ -13,7 +13,7 @@ output_file_path = "C:\\CODE\\TahmidRaven\\UNI\\CSE221venv\\LAB04\\task03_output
 
 def initialize_graph(N):
     # Initializing an empty adjacency list for each vertex
-    graph = [[] for _ in range(N + 1)]
+    graph = [[] for i in range(N + 1)]
 
     return graph
 

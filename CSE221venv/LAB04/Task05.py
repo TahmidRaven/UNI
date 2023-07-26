@@ -23,13 +23,13 @@ def shortest_path(N, M, D, roads):
         graph[v].append(u)
 
     visited = [False] * (N + 1)
-    time_to_reach = [float('inf')] * (N + 1)
-    path_to_city = [0] * (N + 1)
+    time2reach = [float('inf')] * (N + 1)
+    path2City = [0] * (N + 1)
 
     queue = deque()
     queue.append(1)
     visited[1] = True
-    time_to_reach[1] = 0
+    time2reach[1] = 0
 
     while queue:
         current_city = queue.popleft()
@@ -38,18 +38,18 @@ def shortest_path(N, M, D, roads):
             if not visited[neighbor]:
                 visited[neighbor] = True
                 queue.append(neighbor)
-                time_to_reach[neighbor] = time_to_reach[current_city] + 1
-                path_to_city[neighbor] = current_city
+                time2reach[neighbor] = time2reach[current_city] + 1
+                path2City[neighbor] = current_city
 
-    min_time_to_D = time_to_reach[D]
+    mini_time_2_Des = time2reach[D]
     shortest_path_list = [D]
     city = D
     while city != 1:
-        city = path_to_city[city]
+        city = path2City[city]
         shortest_path_list.append(city)
     shortest_path_list.reverse()
 
-    return min_time_to_D, shortest_path_list
+    return mini_time_2_Des, shortest_path_list
 
 def GimmeOutputAtOnce(input_file_path, output_file_path):
     with open(input_file_path, 'r') as f:
