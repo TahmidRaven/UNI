@@ -1,6 +1,6 @@
 def lexico_SmallerPath(N, prereqs):
-    indegree = [0] * (N + 1)
-    adj_list = [[] for i in range(N + 1)]
+    indegree = [0] * (N + 1)     # tracking incoming edges 
+    adj_list = [[] for i in range(N + 1)]  #courses ls
     
     for A, B in prereqs:
         adj_list[A].append(B)
@@ -8,8 +8,8 @@ def lexico_SmallerPath(N, prereqs):
     
     
     # initializing a que 
-    queue = [i for i in range(1, N + 1) if indegree[i] == 0]
-    sequence = []
+    queue = [i for i in range(1, N + 1) if indegree[i] == 0] # no prereqs 
+    sequence = []   #stores the lexicographically smallest valid course sequence
     
     while queue:
         queue.sort()
@@ -25,6 +25,8 @@ def lexico_SmallerPath(N, prereqs):
         return "IMPOSSIBLE"
     else:
         return " ".join(map(str, sequence))
+
+# The above func checks the courses that have no prerequisites and gradually adds courses with their #prerequisites fulfilled. if valid sequences = Truee then return sequence. else impossible. 
 
 def reading_In(input_file):
     with open(input_file, 'r') as f:
