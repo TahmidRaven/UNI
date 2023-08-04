@@ -40,16 +40,15 @@ output_file = "C:\\CODE\\TahmidRaven\\UNI\\CSE221venv\\LAB05\\task01_b_output02.
 
 
 
-with open(input_file, 'r') as file:
-    N, M = map(int, file.readline().split())
-    prereqs = [tuple(map(int, file.readline().split())) for _ in range(M)]
+with open(input_file, 'r') as f01:
+    N, M = map(int, f01.readline().split())
+    prereqs = [tuple(map(int, f01.readline().split())) for _ in range(M)]
 
 
 res = bfs_topoSort(N, prereqs)
 
-
-with open(output_file, 'w') as file:
+with open(output_file, 'w') as f02:
     if res == "IMPOSSIBLE":
-        file.write(res)
+        f02.write(res)
     else:
-        file.write(' '.join(map(str, res)))
+        f02.write(' '.join(map(str, res)))
