@@ -1,0 +1,37 @@
+In this code, the selection_sort function is responsible for sorting the tasks using the selection sort algorithm. Here's how the selection sort algorithm works:
+
+Start from the first element (index 0) and consider it as the minimum.
+Scan the remaining elements to find the minimum element's index among the remaining unsorted elements.
+Swap the minimum element found in step 2 with the first element.
+Move the "sorted boundary" one element to the right (increment the i value) and repeat the process until all elements are sorted.
+In the context of the task scheduling problem, we are sorting tasks based on their end times. So, in step 2, we compare the end times of tasks to find the task with the earliest end time. This task is then swapped with the task at the current sorted boundary (i). The algorithm continues until all tasks are sorted.
+
+Once the tasks are sorted using the selection sort algorithm, you can proceed with the rest of the code to find and output the selected non-overlapping tasks, as shown in the previous examples.
+
+
+
+
+Here's how the selection sort part of the code works:
+
+The selection_sort function takes a list of tasks as its argument.
+
+The outer loop for i in range(len(tasks)) iterates through the list of tasks. The variable i represents the current index where the minimum element will be placed once found.
+
+Inside the outer loop, the variable min_idx is used to keep track of the index of the smallest element (in terms of end time) that is found so far. It's initialized to i because initially, the smallest element is assumed to be at index i.
+
+The inner loop for j in range(i + 1, len(tasks)) starts from the index next to the current i and iterates through the remaining elements in the list.
+
+Inside the inner loop, the condition if tasks[j][1] < tasks[min_idx][1] checks whether the end time of the task at index j is smaller than the end time of the task at the current min_idx. If this condition is true, it means that the task at index j has a smaller end time and should become the new minimum element.
+
+If the condition is true, the value of min_idx is updated to j, indicating that the task at index j has the smallest end time found so far.
+
+After the inner loop completes, the smallest task's index has been found in the remaining unsorted portion of the list. The task at index i (current outer loop index) and the task at index min_idx are swapped to place the smallest task at its correct sorted position.
+
+The outer loop continues until all elements have been iterated over, effectively sorting the tasks based on their end times.
+
+After the selection_sort function is called and the tasks are sorted using the selection sort algorithm, you can proceed with the rest of the code to find and output the selected non-overlapping tasks, similar to the previous examples.
+
+
+
+
+
