@@ -10,17 +10,17 @@ def maxCompletedTasks(tasks, M):
     completedTasks = 0
 
     for task in tasks:          # Iterating through each task to assign them to persons
-        start_time, end_time = task
+        stTime, EndTime = task
         assigned_person = None
 
         for person in range(M): # availibe -> assign tasks 
             
-            if assignedTasks[person] <= start_time:
+            if assignedTasks[person] <= stTime:
                 assigned_person = person
                 break
 
         if assigned_person is not None:
-            assignedTasks[assigned_person] = end_time
+            assignedTasks[assigned_person] = EndTime
             completedTasks += 1
 
  
@@ -33,8 +33,8 @@ def gimme_output_at_once(input_file_path, output_file_path):
         N, M = map(int, input_file.readline().split())
         tasks = []
         for i in range(N):
-            start_time, end_time = map(int, input_file.readline().split())
-            tasks.append((start_time, end_time))
+            stTime, EndTime = map(int, input_file.readline().split())
+            tasks.append((stTime, EndTime))
 
     
     result = maxCompletedTasks(tasks, M)
