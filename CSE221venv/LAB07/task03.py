@@ -1,15 +1,15 @@
 class DisjoinedSetSolver:
     def __init__(self, n):
-        self.parent = [i for i in range(n + 1)]
-        self.size = [1] * (n + 1)
+        self.parent = [i for i in range(n + 1)]       # parent of each element 
+        self.size = [1] * (n + 1)                     # size of each friend circle
 
-    def find(self, x):
+    def find(self, x):                                #finds the rood of a circle
         if self.parent[x] != x:
             self.parent[x] = self.find(self.parent[x])
             
         return self.parent[x]
 
-    def union(self, x, y):
+    def union(self, x, y):        #merges two friend circles
         rootX = self.find(x)
         rootY = self.find(y)
         
