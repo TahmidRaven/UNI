@@ -1,4 +1,4 @@
-def countDistinctWays(n):
+def WaysCounted(n):
     if n <= 1:
         return n
     a, b = 1, 1
@@ -13,7 +13,7 @@ def processInputAndOutput(input_path, output_path):
     results = []
     for line in lines:
         n = int(line.strip())
-        ways = countDistinctWays(n)
+        ways = WaysCounted(n)
         results.append(ways)
     
     with open(output_path, 'w') as f02:
