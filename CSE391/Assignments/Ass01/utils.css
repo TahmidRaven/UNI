@@ -26,4 +26,21 @@
     justify-content: space-between;
 }
 
-.font-bold{ font-weight: bold; }
+.flex-column{ flex-direction: column; } 
+
+.font-bold{ font-weight: bolder;
+            /* font-weight: 900;  */
+}
+
+.m01{
+    margin-top: 23px;
+    margin-bottom: 23px;
+}
+.p01{
+    padding-left: 23px;
+    padding-right: 23px;
+}
+
+.text-purple{
+    color:#422F90;   
+}
