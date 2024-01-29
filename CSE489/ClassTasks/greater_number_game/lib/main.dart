@@ -23,19 +23,23 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(NumberComparisonGame());
+  runApp(const NumberComparisonGame());
 }
 
 class NumberComparisonGame extends StatelessWidget {
+  const NumberComparisonGame({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: NumberComparisonScreen(),
     );
   }
 }
 
 class NumberComparisonScreen extends StatefulWidget {
+  const NumberComparisonScreen({super.key});
+
   @override
   _NumberComparisonScreenState createState() => _NumberComparisonScreenState();
 }
@@ -74,7 +78,7 @@ class _NumberComparisonScreenState extends State<NumberComparisonScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Number Comparison Game'),
+        title: const Text('Number Comparison Game'),
       ),
       body: Center(
         child: Column(
@@ -86,17 +90,17 @@ class _NumberComparisonScreenState extends State<NumberComparisonScreen> {
               },
               child: Text('Number 1: $_number1'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 _compareAndIncrement('2');
               },
               child: Text('Number 2: $_number2'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
               'Your Score: $_userScore',
-              style: TextStyle(fontSize: 18),
+              style: const TextStyle(fontSize: 18),
             ),
           ],
         ),
