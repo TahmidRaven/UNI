@@ -1,4 +1,3 @@
-user=input("Enter the first row: ")
 userin02=input("Enter the second row: ")
 if len(user)>10 or len(userin02)>10:
     print('invalid size input')

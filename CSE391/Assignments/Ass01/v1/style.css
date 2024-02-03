@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+.container {
+    max-width: 80vw;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.navbar {
+    display: flex;
+    height: 65px !important;
+}
+
+.navbar li {
+    list-style: none;
+    margin: 0 12px;
+}
+
+.topleft,
+.topright {
+    height: 50vh;
+}
+
+.section01,
+.section02,
+.section03 {
+    height: 50vh;
+}
+
+.footer {
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.row a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.row i {
+    font-size: 30px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+ul li {
+    margin: 0 15px;
+}
+
+.footer a {
+    color: #42b983;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+body {
+    background-image: url('images/berserk00.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#hobbies,
+#favorite-links {
+    margin-top: 30px;
+}
+
+#personal-info ul {
+    list-style: none;
+    padding: 0;
+    text-align: left; 
+}
+
+#personal-info ul li {
+    display: block;
+    margin-bottom: 10px;
+}
