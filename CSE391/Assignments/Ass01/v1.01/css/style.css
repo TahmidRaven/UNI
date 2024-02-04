@@ -115,6 +115,10 @@
     background-blend-mode: darken;
 
     background-attachment: fixed;
+
+
+ 
+
     
 
 }
@@ -326,3 +330,36 @@ ul li {
 .makingcolumn2{
     width: 40%;
 }
+
+
+/* table createion  */
+
+.favorite-table {
+    border-collapse: collapse;
+    width: 70%;
+    margin: 10px auto;
+}
+
+.category-header {
+    background-color: #0808085e;
+    border: 1px solid #000000;
+    padding: 10px;
+    text-align: left;
+}
+
+.favorite-table td, .favorite-table th {
+    border: 1px solid #ddd;
+    padding: 7px;
+    text-align: left;
+}
+
+.favorite-table tbody tr:hover {
+    background-color: #327f69;
+}
+
+
+
+
+/* pop up email form 
+*/
+
