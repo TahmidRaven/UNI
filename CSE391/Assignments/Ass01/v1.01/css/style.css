@@ -15,6 +15,7 @@
 
 }
 
+
 /* NavBar CSS Part */
 
 .navbar{
@@ -110,7 +111,7 @@
 
 .background{
    
-    background: rgba(0,0,0,0.7) url('../images/vinlandsaga4k.png ');
+    background: rgba(0,0,0,0.7) url('../images/vinlandsaga4k.png');
     background-size: cover;
     background-blend-mode: darken;
 
@@ -148,21 +149,21 @@
 
 }
 .txt-big {
-    font-size: 35px;
+    font-size: 45px;
     padding-left: 270px;
     text-align: center;
  
 }
 .txt-small {
-    font-size: 16px;
-    padding-left: 270px;
-    text-align: center;
+    font-size: 18px;
+    padding-left: 250px;
+    text-align: match-center;
 
 
 }
 .shalf02{
-    width: 40%;
-    padding-right: 120px;
+    width: 50%;
+    padding-right: 100px;
     padding-top: 300px;
 
 }
@@ -203,7 +204,18 @@
     vertical-align: middle;
 }
 
-
+#backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #364c62;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
 
 
 /* footer CSS Part */
@@ -254,7 +266,14 @@ ul li {
 }
 
 
-
+.location-modification{
+    background-color: #091f2a;
+    color: white;
+    padding: 2px;
+    text-align: center;
+    text-decoration: italic;
+    color: rgb(223, 211, 211);
+}
 
 /* Responsive MEDIA QUERY */
 
