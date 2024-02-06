@@ -277,7 +277,7 @@ ul li {
 
 /* Responsive MEDIA QUERY */
 
-@media only screen and (max-width: 1380px) {
+@media only screen and (max-width: 1266px) {
     .nav-list{
         flex-direction: column;
     }
