@@ -16,7 +16,7 @@ class Homepage extends StatelessWidget {
       title: const Text(
         'BreakFast',
         style: TextStyle(
-          color: Colors.black,
+          color: Colors.black, 
           fontSize: 19,
           fontWeight: FontWeight.bold,
         ),
