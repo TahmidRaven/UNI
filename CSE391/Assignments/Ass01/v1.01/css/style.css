@@ -39,6 +39,7 @@
     border: 3px solid whitesmoke;
     border-radius: 50%;
     justify-content: left;
+    margin-left: 4px;
 }
 .fonta{
     display: flex;
@@ -377,6 +378,21 @@ ul li {
 
 
 
-/* pop up email form 
+/* email form
 */
 
+.eform{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+#message-box{
+
+   width: 438px;height: 252px;margin-right: 0px;margin-left: 25px;padding-left: 0px; 
+   cursor: pointer;
+   border-radius: 5px;
+
+}
