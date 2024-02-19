@@ -1,0 +1,10 @@
+- Pomodoro Timer
+- Break Time + Focus Time
+- Customizable Timer Settings
+- Task List
+- Task Prioritization
+- Notification Reminders
+- Progress Tracking
+- Rewards and Gamification
+- Themes (i.e., Colors/Backgrounds)
+- Leaderboard
