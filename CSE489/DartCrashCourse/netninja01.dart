@@ -10,8 +10,9 @@ void main() {
   // const isOpen = true;
   // isOpen = false;
 
+  print(age * 10);
+  print(age / 2);
+  print(age % 10);
 
+  print("I go by $name");
 }
-
-
-
