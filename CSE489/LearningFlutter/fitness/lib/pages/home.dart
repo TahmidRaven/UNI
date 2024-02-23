@@ -47,16 +47,16 @@ class Homepage extends StatelessWidget {
 
             },
           child: Container(
-                     margin: const EdgeInsets.all(10),
-                     alignment: Alignment.center,
-                     width: 35,
-                     decoration: BoxDecoration(
+            margin: const EdgeInsets.all(10),
+            alignment: Alignment.center,
+            width: 35,
+            decoration: BoxDecoration(
               color: const Color(0xffF7F8F8), 
-              borderRadius: BorderRadius.circular(12.0)),
-                     child: SvgPicture.asset('assets/icons/dot.svg',
-                     // height: 20,
-                     // width: 20,
-                     ),
+              borderRadius: BorderRadius.circular(12.0),),
+            child: SvgPicture.asset('assets/icons/dot.svg',
+            // height: 20,
+            // width: 20,
+            ),
            
                    ),
          ),
