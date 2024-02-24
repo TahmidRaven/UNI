@@ -83,7 +83,7 @@ class _MyDropdownMenuState extends State<MyDropdownMenu> {
                   },
                 ),
                 RadioListTile<String>(
-                  title: Text(
+                  title: const Text(
                     'Wifi State',
                     style: TextStyle(color: Colors.black),
                   ),
