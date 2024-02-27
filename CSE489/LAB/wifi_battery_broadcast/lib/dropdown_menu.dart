@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'input_txt.dart';  
 
 class MyDropdownMenu extends StatefulWidget {
-  final Function(String)? onChanged;
-
-  const MyDropdownMenu({Key? key, this.onChanged}) : super(key: key);
+  const MyDropdownMenu({Key? key}) : super(key: key);
 
   @override
   _MyDropdownMenuState createState() => _MyDropdownMenuState();
@@ -40,11 +39,15 @@ class _MyDropdownMenuState extends State<MyDropdownMenu> {
         SizedBox(height: 22),
         ElevatedButton(
           onPressed: () {
-            // will work on "Go" button press
+            // Navigate to the input text page
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => InputTextPage()),
+            );
           },
           child: Text(
             'Go!',
-            style: TextStyle(color: Colors.white),  
+            style: TextStyle(color: Colors.white),
           ),
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(buttonColor),
@@ -75,7 +78,6 @@ class _MyDropdownMenuState extends State<MyDropdownMenu> {
                   onChanged: (String? value) {
                     setState(() {
                       selectedOption = value;
-                      widget.onChanged?.call(selectedOption!);
                       boxColor = Colors.blueGrey[900]!;
                       buttonColor = Colors.blueGrey[900]!;
                     });
@@ -92,7 +94,6 @@ class _MyDropdownMenuState extends State<MyDropdownMenu> {
                   onChanged: (String? value) {
                     setState(() {
                       selectedOption = value;
-                      widget.onChanged?.call(selectedOption!);
                       boxColor = Colors.blueGrey[900]!;
                       buttonColor = Colors.blueGrey[900]!;
                     });
@@ -109,7 +110,6 @@ class _MyDropdownMenuState extends State<MyDropdownMenu> {
                   onChanged: (String? value) {
                     setState(() {
                       selectedOption = value;
-                      widget.onChanged?.call(selectedOption!);
                       boxColor = Colors.blueGrey[900]!;
                       buttonColor = Colors.blueGrey[900]!;
                     });

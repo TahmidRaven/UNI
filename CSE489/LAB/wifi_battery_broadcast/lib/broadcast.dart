@@ -1,31 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'dropdown_menu.dart';
-import 'input_txt.dart';
-import 'broadcast.dart';
 
-void main() {
-  runApp(
-    MaterialApp(
-      theme: ThemeData(fontFamily: 'Space Grotesk'),
-      debugShowCheckedModeBanner: false,
-      home: MainScreen(),
-    ),
-  );
-}
+class BroadcastPage extends StatelessWidget {
+  final String inputText;
 
-class MainScreen extends StatelessWidget {
+  const BroadcastPage({Key? key, required this.inputText}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.blueGrey, // Same background color as home page
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         toolbarHeight: 60,
         foregroundColor: const Color(0xFFFFFFFF),
         backgroundColor: Colors.transparent,
         elevation: 4.0,
-        title: const Text("HOME"),
+        title: Text('Broadcast Page'),
         centerTitle: true,
         flexibleSpace: ClipRRect(
           borderRadius: const BorderRadius.only(
@@ -38,24 +28,29 @@ class MainScreen extends StatelessWidget {
             ),
           ),
         ),
-        systemOverlayStyle: SystemUiOverlayStyle.light,
-        actions: [
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              // Will work on search button press
-            },
-          ),
-          IconButton(
-            icon: Icon(Icons.more_vert),
-            onPressed: () {
-              // Will work on more options button press
-            },
-          ),
-        ],
       ),
       body: Center(
-        child: MyDropdownMenu(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'YOUR BROADCASTED TEXT:',
+              style: TextStyle(
+                fontSize: 16, // Increase font size
+                color: Colors.white, // Set text color to white
+                fontWeight: FontWeight.bold, // Make text bold
+              ),
+            ),
+            Text(
+              inputText,
+              style: TextStyle(
+                fontSize: 28, // Increase font size
+                color: Colors.white, // Set text color to white
+                fontWeight: FontWeight.bold, // Make text bold
+              ),
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: BottomAppBar(
         height: 70,
