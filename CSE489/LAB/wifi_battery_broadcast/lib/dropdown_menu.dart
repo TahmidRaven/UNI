@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'input_txt.dart';  
+import 'guess_battery_health.dart';
+import 'wifi_state.dart';
+import 'input_txt.dart';
 
 class MyDropdownMenu extends StatefulWidget {
   const MyDropdownMenu({Key? key}) : super(key: key);
@@ -39,11 +41,22 @@ class _MyDropdownMenuState extends State<MyDropdownMenu> {
         SizedBox(height: 22),
         ElevatedButton(
           onPressed: () {
-            // Navigate to the input text page
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => InputTextPage()),
-            );
+            if (selectedOption == 'Battery Health') {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => GuessBatteryHealthPage()),
+              );
+            } else if (selectedOption == 'Wifi State') {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => WifiStatePage()),
+              );
+            } else {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => InputTextPage()),
+              );
+            }
           },
           child: Text(
             'Go!',

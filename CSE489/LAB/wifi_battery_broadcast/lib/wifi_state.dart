@@ -1,9 +1,47 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 
-class BroadcastPage extends StatelessWidget {
-  final String inputText;
+class WifiStatePage extends StatefulWidget {
+  @override
+  _WifiStatePageState createState() => _WifiStatePageState();
+}
 
-  const BroadcastPage({Key? key, required this.inputText}) : super(key: key);
+class _WifiStatePageState extends State<WifiStatePage> {
+  late StreamSubscription<ConnectivityResult> subscription;
+  String wifiState = 'Loading...';
+
+  @override
+  void initState() {
+    super.initState();
+    _getWifiState();
+    // Subscribe to connectivity changes
+    subscription = Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
+      _updateWifiState(result);
+    });
+  }
+
+  @override
+  void dispose() {
+    // Cancel the subscription to avoid memory leaks
+    subscription.cancel();
+    super.dispose();
+  }
+
+  Future<void> _getWifiState() async {
+    var connectivityResult = await Connectivity().checkConnectivity();
+    _updateWifiState(connectivityResult);
+  }
+
+  void _updateWifiState(ConnectivityResult result) {
+    setState(() {
+      if (result == ConnectivityResult.wifi) {
+        wifiState = 'WiFi is ON';
+      } else {
+        wifiState = 'WiFi is OFF';
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +53,7 @@ class BroadcastPage extends StatelessWidget {
         foregroundColor: const Color(0xFFFFFFFF),
         backgroundColor: Colors.transparent,
         elevation: 4.0,
-        title: Text('Broadcast Page'),
+        title: Text('WiFi State'),
         centerTitle: true,
         flexibleSpace: ClipRRect(
           borderRadius: const BorderRadius.only(
@@ -34,19 +72,19 @@ class BroadcastPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'YOUR BROADCASTED TEXT:',
+              'CURRENT WIFI STATE:',
               style: TextStyle(
-                fontSize: 16, 
+                fontSize: 16,  
                 color: Colors.white,  
                 fontWeight: FontWeight.bold,  
               ),
             ),
             Text(
-              inputText,
+              wifiState,
               style: TextStyle(
-                fontSize: 28, // Increase font size
-                color: Colors.white, // Set text color to white
-                fontWeight: FontWeight.bold, // Make text bold
+                fontSize: 28,  
+                color: Colors.white,  
+                fontWeight: FontWeight.bold,  
               ),
             ),
           ],
