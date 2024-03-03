@@ -15,15 +15,16 @@ class _WifiStatePageState extends State<WifiStatePage> {
   void initState() {
     super.initState();
     _getWifiState();
-    // Subscribe to connectivity changes
-    subscription = Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
+    //holds the connectivity value
+    subscription = Connectivity()
+        .onConnectivityChanged
+        .listen((ConnectivityResult result) {
       _updateWifiState(result);
     });
   }
 
   @override
   void dispose() {
-    // Cancel the subscription to avoid memory leaks
     subscription.cancel();
     super.dispose();
   }
@@ -74,17 +75,17 @@ class _WifiStatePageState extends State<WifiStatePage> {
             Text(
               'CURRENT WIFI STATE:',
               style: TextStyle(
-                fontSize: 16,  
-                color: Colors.white,  
-                fontWeight: FontWeight.bold,  
+                fontSize: 16,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
               ),
             ),
             Text(
               wifiState,
               style: TextStyle(
-                fontSize: 28,  
-                color: Colors.white,  
-                fontWeight: FontWeight.bold,  
+                fontSize: 28,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],

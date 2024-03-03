@@ -54,7 +54,7 @@ class _MyDropdownMenuState extends State<MyDropdownMenu> {
             } else {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => InputTextPage()),
+                MaterialPageRoute(builder: (context) => InputTextForm()),
               );
             }
           },

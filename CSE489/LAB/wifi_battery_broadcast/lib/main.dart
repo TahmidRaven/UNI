@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dropdown_menu.dart';
+import 'broadcast.dart';
+import 'input_txt.dart'; // Import the InputTextForm
 
 void main() {
   runApp(
@@ -13,6 +15,8 @@ void main() {
 }
 
 class MainScreen extends StatelessWidget {
+  final StreamController<String> _textStreamController = StreamController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +57,9 @@ class MainScreen extends StatelessWidget {
         ],
       ),
       body: Center(
-        child: MyDropdownMenu(),
+        child: BroadcastPage( // Pass _textStreamController here
+          textStreamController: _textStreamController,
+        ),
       ),
       bottomNavigationBar: BottomAppBar(
         height: 70,

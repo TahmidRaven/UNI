@@ -1,14 +1,39 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 
-class BroadcastPage extends StatelessWidget {
-  final String inputText;
+class BroadcastPage extends StatefulWidget {
+  final StreamController<String> textStreamController;
 
-  const BroadcastPage({Key? key, required this.inputText}) : super(key: key);
+  BroadcastPage({required this.textStreamController});
+
+  @override
+  _BroadcastPageState createState() => _BroadcastPageState();
+}
+
+class _BroadcastPageState extends State<BroadcastPage> {
+  late StreamSubscription<String> _subscription;
+  String _broadcastedText = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _subscription = widget.textStreamController.stream.listen((text) {
+      setState(() {
+        _broadcastedText = text;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _subscription.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey, // Same background color as home page
+      backgroundColor: Colors.blueGrey,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         toolbarHeight: 60,
@@ -36,17 +61,17 @@ class BroadcastPage extends StatelessWidget {
             Text(
               'YOUR BROADCASTED TEXT:',
               style: TextStyle(
-                fontSize: 16, 
-                color: Colors.white,  
-                fontWeight: FontWeight.bold,  
+                fontSize: 16,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
               ),
             ),
             Text(
-              inputText,
+              _broadcastedText,
               style: TextStyle(
-                fontSize: 28, // Increase font size
-                color: Colors.white, // Set text color to white
-                fontWeight: FontWeight.bold, // Make text bold
+                fontSize: 28,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],
