@@ -57,7 +57,7 @@ class MainScreen extends StatelessWidget {
         ],
       ),
       body: Center(
-        child: BroadcastPage( // Pass _textStreamController here
+        child: BroadcastPage( // Passing _textStreamController here
           textStreamController: _textStreamController,
         ),
       ),

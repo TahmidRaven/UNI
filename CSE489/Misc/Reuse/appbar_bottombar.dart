@@ -32,13 +32,13 @@
 //             IconButton(
 //               icon: Icon(Icons.search),
 //               onPressed: () {
-//                 // Will work on search button press
+//                 Will work on search button press
 //               },
 //             ),
 //             IconButton(
 //               icon: Icon(Icons.more_vert),
 //               onPressed: () {
-//                 // Will work on more options button press
+//                 Will work on more options button press
 //               },
 //             ),
 //           ],
@@ -59,21 +59,21 @@
 //               IconButton(
 //                 icon: Icon(Icons.home),
 //                 onPressed: () {
-//                   // Will work on home button press
+//                   Will work on home button press
 //                 },
 //                 color: Colors.white,
 //               ),
 //               IconButton(
 //                 icon: Icon(Icons.favorite),
 //                 onPressed: () {
-//                   // Will work on favorite button press
+//                   Will work on favorite button press
 //                 },
 //                 color: Colors.white,
 //               ),
 //               IconButton(
 //                 icon: Icon(Icons.settings),
 //                 onPressed: () {
-//                   // Will work on settings button press
+//                   Will work on settings button press
 //                 },
 //                 color: Colors.white,
 //               ),
