@@ -57,4 +57,4 @@ class Match {
 
 
 // i've here used https://app.quicktype.io/ to to parse the json
-// not sure if there were any restrictions or not; however all the youtubers seem to use it
+// not sure if there were any restrictions or not; however all the youtubers seem to use

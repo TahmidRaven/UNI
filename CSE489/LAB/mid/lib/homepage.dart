@@ -58,8 +58,13 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
           onPressed: () => _fetchMatchResults(context),
-          child: Text('Get Result'),
+          child: const Text('GET RESULT'),
         ),
       ),
       bottomNavigationBar: BottomAppBar(
