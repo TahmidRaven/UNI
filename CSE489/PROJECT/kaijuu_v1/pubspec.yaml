@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   provider: 
   font_awesome_flutter: 
+  firebase_core: ^2.28.0
 
 
 dev_dependencies:
