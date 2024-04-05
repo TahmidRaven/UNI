@@ -19,7 +19,8 @@ class _TasksPageState extends State<TasksPage> {
     setState(() {
       tasks.add(newTask);
     });
-  }
+  } 
+  
 
   void removeTask(int index) {
     setState(() {
