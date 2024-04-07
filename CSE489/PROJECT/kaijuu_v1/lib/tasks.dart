@@ -8,23 +8,28 @@ class TasksPage extends StatefulWidget {
 }
 
 class _TasksPageState extends State<TasksPage> {
-  List<String> tasks = [
-    'Task 1',
-    'Task 2',
-    'Task 3',
+  List<Task> tasks = [
+    Task(title: 'Task 1', isDone: false),
+    Task(title: 'Task 2', isDone: false),
+    Task(title: 'Task 3', isDone: false),
     // Add more tasks as needed
   ];
 
-  void addTask(String newTask) {
+  void addTask(String newTaskTitle) {
     setState(() {
-      tasks.add(newTask);
+      tasks.add(Task(title: newTaskTitle, isDone: false));
     });
-  } 
-  
+  }
 
   void removeTask(int index) {
     setState(() {
       tasks.removeAt(index);
+    });
+  }
+
+  void toggleTask(int index) {
+    setState(() {
+      tasks[index].isDone = !tasks[index].isDone;
     });
   }
 
@@ -73,7 +78,7 @@ class _TasksPageState extends State<TasksPage> {
         itemCount: tasks.length,
         itemBuilder: (BuildContext context, int index) {
           return Dismissible(
-            key: Key(tasks[index]),
+            key: Key(tasks[index].title),
             direction: DismissDirection.endToStart,
             onDismissed: (direction) {
               removeTask(index);
@@ -90,9 +95,15 @@ class _TasksPageState extends State<TasksPage> {
               ),
             ),
             child: ListTile(
-              title: Text(tasks[index], style: TextStyle(color: Colors.white)),
+              title: Text(
+                tasks[index].title,
+                style: TextStyle(
+                  color: tasks[index].isDone ? Colors.grey : Colors.white,
+                  decoration: tasks[index].isDone ? TextDecoration.lineThrough : null,
+                ),
+              ),
               onTap: () {
-                // Handle task tap
+                toggleTask(index);
               },
             ),
           );
@@ -100,7 +111,7 @@ class _TasksPageState extends State<TasksPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          final String? newTask = await showDialog<String>(
+          final String? newTaskTitle = await showDialog<String>(
             context: context,
             builder: (BuildContext context) {
               String taskName = '';
@@ -191,3 +202,11 @@ class _TasksPageState extends State<TasksPage> {
     );
   }
 }
+
+class Task {
+  String title;
+  bool isDone;
+
+  Task({required this.title, required this.isDone});
+}
+   

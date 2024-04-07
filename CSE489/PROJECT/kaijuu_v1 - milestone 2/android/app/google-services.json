@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "642909963399",
+    "project_id": "pomokaijuu",
+    "storage_bucket": "pomokaijuu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642909963399:android:98b4c0cdcc205257f26422",
+        "android_client_info": {
+          "package_name": "com.example.kaijuu_v1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFmnbkDm_sMhcTTt-hDt1l6y9sycmyAno"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
