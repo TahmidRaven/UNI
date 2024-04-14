@@ -1,15 +1,15 @@
 # Pomodoro productivity game app
-- Pomodoro Timer (centered on homescreen)
-- signup & login
-- Break Time + Focus Time
-- Customizable Timer Settings
-- Task List
+- Pomodoro Timer (centered on homescreen)  ☑️
+- signup & login ❎
+- Break Time + Focus Time ☑️
+- Customizable Timer Settings ☑️
+- Task List ☑️
 - Task Prioritization
 - Notification Reminders
-- Progress Tracking
-- Rewards and Gamification
+- Progress Tracking ☑️
+- Rewards and Gamification☑️
 - Themes (i.e., Colors/Backgrounds)
-- Leaderboard
+- Leaderboard ☑️
 
 
 # additional features for  time management app
@@ -34,3 +34,9 @@
 - User Profiles
 - Privacy and Security
 - Feedback and Support
+
+
+1_1
+1_1
+_
+1_2
