@@ -41,7 +41,7 @@ class _TaskListState extends State<TaskList> {
                 itemCount: counterProvider.tasks.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text(counterProvider.tasks[index]),
+                    title: Text(counterProvider.tasks[index] as String),
                     trailing: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [

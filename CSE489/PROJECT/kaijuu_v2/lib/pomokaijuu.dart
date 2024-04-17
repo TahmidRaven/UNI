@@ -3,16 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'counter_provider.dart';
 
-class PomoKaijuu extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => CounterProvider(),
-      child: PomoKaijuuStateful(),
-    );
-  }
-}
-
 class PomoKaijuuStateful extends StatefulWidget {
   @override
   _PomoKaijuuState createState() => _PomoKaijuuState();
@@ -26,7 +16,6 @@ class _PomoKaijuuState extends State<PomoKaijuuStateful> {
     final counterProvider = Provider.of<CounterProvider>(context, listen: false);
 
     return Scaffold(
- 
       body: Consumer<CounterProvider>(
         builder: (context, provider, child) {
           return Column(
@@ -108,7 +97,7 @@ class _PomoKaijuuState extends State<PomoKaijuuStateful> {
                   Icon(Icons.timer, color: Colors.black),
                   SizedBox(width: 10),
                   Text(
-                    'Focus Sessions Left: ${provider.focusSessionsCompleted}',
+                    'Focus Sessions Left: ${provider.focusSessionsCompleted}/${provider.cycles * 4}',
                     style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -214,7 +203,7 @@ class _PomoKaijuuState extends State<PomoKaijuuStateful> {
             if (counterProvider.sessionType == 'FOCUSING') {
               counterProvider.updateSessionType('SHORT BREAK');
               counterProvider.updateSeconds(counterProvider.shortBreakMinutes * 60);
-            } else {
+            } else if (counterProvider.sessionType == 'SHORT BREAK') {
               counterProvider.updateSessionType('FOCUSING');
               counterProvider.incrementFocusSessionsCompleted();
               if (counterProvider.focusSessionsCompleted % 4 == 0) {
@@ -223,6 +212,9 @@ class _PomoKaijuuState extends State<PomoKaijuuStateful> {
               } else {
                 counterProvider.updateSeconds(counterProvider.focusMinutes * 60);
               }
+            } else if (counterProvider.sessionType == 'LONG BREAK') {
+              counterProvider.updateSessionType('FOCUSING');
+              counterProvider.updateSeconds(counterProvider.focusMinutes * 60);
             }
             counterProvider.incrementCurrentSession();
           } else {

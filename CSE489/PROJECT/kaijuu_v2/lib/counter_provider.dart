@@ -3,7 +3,9 @@ import 'package:flutter/foundation.dart';
 class CounterProvider with ChangeNotifier {
   int _counter = 0;
   List<String> _tasks = []; // Initialize tasks list
+  List<double> _progressValues = []; // Initialize progress values list
 
+  // Pomodoro Timer related variables
   int _focusMinutes = 25;
   int _shortBreakMinutes = 5;
   int _longBreakMinutes = 15;
@@ -16,6 +18,7 @@ class CounterProvider with ChangeNotifier {
 
   int get counter => _counter;
   List<String> get tasks => _tasks; // Getter for tasks list
+  List<double> get progressValues => _progressValues; // Getter for progress values list
   int get focusMinutes => _focusMinutes;
   int get shortBreakMinutes => _shortBreakMinutes;
   int get longBreakMinutes => _longBreakMinutes;
@@ -35,11 +38,13 @@ class CounterProvider with ChangeNotifier {
 
   void addTask(String task) {
     _tasks.add(task); // Implement adding task functionality
+    initializeProgressValues(); // Initialize progress value for the newly added task
     notifyListeners();
   }
 
   void removeTask(int index) {
     _tasks.removeAt(index); // Implement removing task functionality
+    _progressValues.removeAt(index); // Remove progress value corresponding to the removed task
     notifyListeners();
   }
 
@@ -47,11 +52,13 @@ class CounterProvider with ChangeNotifier {
     // Implement completing task functionality, e.g., move the task to completed tasks list
     // For now, let's just remove the task
     _tasks.removeAt(index);
+    _progressValues.removeAt(index); // Remove progress value corresponding to the completed task
     notifyListeners();
   }
 
   void initTasks() {
     _tasks = []; // Initialize tasks list
+    _progressValues = []; // Initialize progress values list
   }
 
   void updateFocusMinutes(int minutes) {
@@ -118,6 +125,18 @@ class CounterProvider with ChangeNotifier {
   // Update seconds with the provided value
   void updateSeconds(int seconds) {
     _seconds = seconds;
+    notifyListeners();
+  }
+
+  // Method to initialize progress values for all tasks
+  void initializeProgressValues() {
+    _progressValues = List<double>.filled(_tasks.length, 0.0);
+    notifyListeners();
+  }
+
+  // Method to update the progress value for a specific task
+  void setProgressValue(int index, double value) {
+    _progressValues[index] = value;
     notifyListeners();
   }
 }

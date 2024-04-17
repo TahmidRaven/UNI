@@ -1,11 +1,16 @@
-// main.dart
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:kaijuu_v2/login_page.dart';  
 import 'package:kaijuu_v2/tasks_page.dart';
 import 'homepage.dart';
 import 'package:provider/provider.dart';
 import 'counter_provider.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
   runApp(MyApp());
 }
 
@@ -17,18 +22,20 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'My App',
-        theme: ThemeData( // Set the theme to apply blueGrey background
+        theme: ThemeData(  
           scaffoldBackgroundColor: Colors.blueGrey,
         ),
-        initialRoute: '/',
+        initialRoute: '/', // Set initial route to '/'
         onGenerateRoute: (settings) {
           switch (settings.name) {
             case '/':
-              return MaterialPageRoute(builder: (context) => HomePage());
+              return MaterialPageRoute(builder: (context) => LoginPage()); // Return LoginPage for the initial route
+            case '/home':
+              return MaterialPageRoute(builder: (context) => HomePage()); // Return HomePage for '/home' route
             case '/tasks':
-              return MaterialPageRoute(builder: (context) => TasksPage());
+              return MaterialPageRoute(builder: (context) => TasksPage()); // Return TasksPage for '/tasks' route
             default:
-              return MaterialPageRoute(builder: (context) => HomePage());
+              return MaterialPageRoute(builder: (context) => LoginPage()); // Return LoginPage for unknown routes
           }
         },
       ),

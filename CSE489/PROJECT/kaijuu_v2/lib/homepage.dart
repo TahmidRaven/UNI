@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CommonAppBar( // Use CommonAppBar widget
       title: 'Home',
-      body: PomoKaijuu(), // Display PomoKaijuu directly on the homepage
+      body: PomoKaijuuStateful(), // Display PomoKaijuu directly on the homepage
     );
   }
 }
