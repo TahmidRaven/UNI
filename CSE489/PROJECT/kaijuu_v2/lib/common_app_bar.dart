@@ -1,16 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kaijuu_v2/leaderboard.dart';
+import 'package:kaijuu_v2/profile.dart';  
 import 'package:kaijuu_v2/progress_page.dart';
 import 'package:kaijuu_v2/rewards_page.dart';
 import 'homepage.dart';
-// ignore: unused_import
-import 'pomokaijuu.dart';
 import 'tasks_page.dart';
+import 'login_page.dart';  
 
 class CommonAppBar extends StatelessWidget {
   final String title;
-  final Widget? body; // Making the body parameter optional
+  final Widget? body;  
 
   const CommonAppBar({
     required this.title,
@@ -33,15 +34,43 @@ class CommonAppBar extends StatelessWidget {
           children: [
             IconButton(
               icon: const FaIcon(FontAwesomeIcons.user, color: Colors.white),
-              onPressed: () {
-                // Will work on profile button press
+              onPressed: () async {
+                // Retrieve the current user's ID
+                final currentUser = FirebaseAuth.instance.currentUser;
+                if (currentUser != null) {
+                  String userId = currentUser.uid;
+                  
+                  // Navigate to the profile page and pass the user ID
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProfilePage(userId: userId)),
+                  );
+                } else {
+                  // when user is not logged in (pore korbo ne!)
+                   
+                }
               },
             ),
             Text(title), // Dynamic title
-            IconButton(
+            PopupMenuButton<String>(
               icon: const FaIcon(FontAwesomeIcons.bars, color: Colors.white),
-              onPressed: () {
-                // Will work on more options button press
+              onSelected: (String value) {
+                if (value == 'Logout') {
+                  // Perform logout operation
+                  // For now, just navigate to LoginPage
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                  );
+                }
+              },
+              itemBuilder: (BuildContext context) {
+                return [
+                  const PopupMenuItem<String>(
+                    value: 'Logout',
+                    child: Text('Logout'),
+                  ),
+                ];
               },
             ),
           ],
@@ -59,7 +88,7 @@ class CommonAppBar extends StatelessWidget {
           ),
         ),
       ),
-      body: body, // Set the body content provided by the caller
+      body: body,  
       bottomNavigationBar: SafeArea(
         child: BottomAppBar(
           height: 70,

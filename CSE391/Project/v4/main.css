@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: black; /* Set text color to black */
+}
+
+body {
+  background-image: url('jon.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  margin-bottom: 8%;
+  text-align: center;
+  color: #0b2433;
+  letter-spacing: 0.1em;
+}
+
+p {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #000;
+  line-height: 0.1em;
+}
+
+p span {
+  background:#fff;
+  padding:0 10px;
+}
+
+input {
+  margin-bottom: 3%;
+  background-color: transparent; /* Make input fields transparent */
+  border: 1px solid black; /* Add border for visibility */
+  color: black; /* Set text color to black */
+  border-radius: 5px; /* Add border radius */
+}
+
+input:last-of-type {
+  margin-bottom: 0;
+}
+
+input, button {
+  padding: 3%;
+  width: 100%;
+}
+
+.login-container {
+  background-color: rgba(255, 255, 255, 0.7); /* Set background color with transparency */
+  padding: 7%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  /* horizontal align */
+  width: 40vw;
+  margin-left: 30vw;
+  /* vertical align */
+  height: 70vh;
+  margin-top: 15vh;
+  border-radius: 10px; /* Add border radius */
+}
+
+#submit, #create-acct-btn {
+  background-color: gray;
+  color: white;
+  border: none;
+  margin-top: 5%;
+  border-radius: 5px; /* Add border radius */
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  background-color: darkcyan;
+
+  transition: 0.3s;
+}
+
+#sign-up {
+  border: none;
+}
+
+#create-acct {
+  display: none;
+}
+
+#return-btn {
+  background: none;
+  color: black;
+  text-decoration: underline;
+  border: none;
+  margin-top: 3%;
+}

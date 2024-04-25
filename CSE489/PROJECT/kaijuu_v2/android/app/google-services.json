@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "402883918687",
+    "project_id": "firekaijuu",
+    "storage_bucket": "firekaijuu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402883918687:android:2f72137401e47752d614ea",
+        "android_client_info": {
+          "package_name": "com.example.kaijuu_v2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdrd6DchjQjRm_f7IqEv02PqJDIW6DMSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

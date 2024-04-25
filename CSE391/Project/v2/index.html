@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login & Registration Form</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="login_signup.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="module" src="firebaseauth.js"></script>
+</head>
+<body>
+  <div class="cont">
+    <form class="form sign-in">
+      <h2>Sign In</h2>
+      <label>
+        <span>Email Address</span>
+        <input type="email" name="email">
+      </label>
+      <label>
+        <span>Password</span>
+        <input type="password" name="password">
+      </label>
+      <button class="submit" type="button">Sign In</button>
+     
+      <div class="social-media">
+        <ul>
+            <li><a href="https://github.com/TahmidRaven"><i style="font-size:20px;color:gray" class="fa">&#xf09b;</i></a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=100073382900528"><i style="font-size:20px;color:gray" class="fa">&#xf230;</i></a></li>
+            <li><a href="https://www.instagram.com/tahmid_raven/"><i style="font-size:20px;color:gray" class="fa">&#xf16d;</i></a></li>
+            <li><a href="https://www.youtube.com/@tahmidraven"><i style="font-size:20px;color:gray" class="fa">&#xf16a;</i></a></li>
+        </ul>
+      </div>
+    </form>
+
+    <div class="sub-cont">
+      <div class="img">
+        <div class="img-text m-up">
+          <h1>New here?</h1>
+          <p>Sign up and discover</p>
+        </div>
+        <div class="img-text m-in">
+          <h1>One of us?</h1>
+          <p>Just sign in</p>
+        </div>
+        <div class="img-btn">
+          <span class="m-up">Sign Up</span>
+          <span class="m-in">Sign In</span>
+        </div>
+      </div>
+      <form class="form sign-up">
+        <h2>Sign Up</h2>
+        <label>
+          <span>Name</span>
+          <input type="text" name="name">
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email">
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" name="password">
+        </label>
+        <label>
+          <span>Confirm Password</span>
+          <input type="password" name="confirm_password">
+        </label>
+        <button type="button" class="submit">Sign Up Now</button>
+      </form>
+    </div>
+  </div>
+  
+ 
+<script type="text/javascript" src="script.js"></script>
+
+
+</body>
+</html>

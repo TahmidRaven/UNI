@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>POMOKAIJUU</title>
+</head>
+<body>
+    <header id="header"></header>
+    
+    <!-- Your main content -->
+    <main>
+        <div id="title-container">
+            <h1>Welcome to POMOKAIJUU</h1>
+            <p id="pomodoro-state">Paused (0/4)</p> <!-- Initial progress is 0 out of 4 -->
+        </div>
+        
+        <!-- Pomodoro Timer -->
+        <div id="pomodoro-container">
+            <div id="pomodoro"></div>
+            <div id="pomodoro-buttons">
+                <button id="start">Start</button>
+                <button id="pause">Pause</button>
+                <button id="reset">Reset</button>
+            </div>
+        </div>
+    </main>
+                            
+    <footer id="footer"></footer>
+
+    <script>
+        // Function to include HTML file content
+        function includeHTML() {
+            const headerElement = document.getElementById('header');
+            const footerElement = document.getElementById('footer');
+
+            // Load header.html
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    headerElement.innerHTML = data;
+                });
+
+            // Load footer.html
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    footerElement.innerHTML = data;
+                    // After footer content is loaded, include footer.js for functionality
+                    const script = document.createElement('script');
+                    script.src = 'script.js';
+                    document.body.appendChild(script);
+                });
+        }
+        includeHTML();
+    </script>
+
+    <!-- Pomodoro Timer JavaScript -->
+    <script src="pomodoro.js"></script>
+
+</body>
+</html>
