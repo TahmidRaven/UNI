@@ -17,7 +17,9 @@ const int echoPin = 7; // Pin connected to the ultrasonic sensor's echo pin
 unsigned long lastCheckTime = 0; // Variable to store the time of the last obstacle check
 const unsigned long checkInterval = 5000; // Interval between obstacle checks (milliseconds)
 
-bool carStarted = false;
+bool carActivated = false;
+bool forwardCommandReceived = false;
+bool stopCommandReceived = false;
 
 void setup() {
   // Set up serial connection for debugging
@@ -37,33 +39,32 @@ void setup() {
   pinMode(echoPin, INPUT);
 
   // Set speed for the motors
-  motor1.setSpeed(150); // Reduced speed
-  motor2.setSpeed(150); // Reduced speed
+  motor1.setSpeed(100); // Reduced speed
+  motor2.setSpeed(100); // Reduced speed
 }
 
 void loop() {
   if (BTSerial.available()) {
     char command = BTSerial.read();
     if (command == 'O') {
-      carStarted = true;
-      Serial.println("Car started.");
-    } else if (carStarted) {
-      if (command == 'F') {
-        checkAndMoveForward();
-      } else if (command == 'B') {
-        checkAndMoveBackward();
-      } else if (command == 'L') {
-        checkAndTurnLeft();
-      } else if (command == 'R') {
-        checkAndTurnRight();
-      } else if (command == 'S') {
-        stopMotors();
-      }
+      carActivated = true;
+      Serial.println("Car activated.");
+    } else if (command == 'F') {
+      forwardCommandReceived = true;
+      stopCommandReceived = false;
+    } else if (command == 'S') {
+      stopCommandReceived = true;
     }
+  }
+
+  if (carActivated && forwardCommandReceived && !stopCommandReceived) {
+    checkAndMoveForward();
+  } else {
+    stopMotors();
   }
   
   // Check if it's time to perform obstacle detection
-  if (carStarted) {
+  if (carActivated && forwardCommandReceived && !stopCommandReceived) {
     unsigned long currentTime = millis();
     if (currentTime - lastCheckTime >= checkInterval) {
       lastCheckTime = currentTime;
@@ -163,11 +164,13 @@ void checkAndAvoidObstacle() {
 
   if (isObstacleDetected()) {
     Serial.println("Obstacle detected. Avoiding.");
+    stopMotors(); // Stop motors immediately upon obstacle detection
     
     // Rotate the servo to scan for a clear path
     for (int angle = 45; angle <= 135; angle += 15) {
       servoMotor.write(angle);
       delay(500); // Adjust delay based on servo speed
+      
       if (!isObstacleDetected()) {
         // If a clear path is found, turn in that direction and exit the loop
         if (angle <= 90) {
@@ -179,9 +182,10 @@ void checkAndAvoidObstacle() {
       }
     }
 
-    // If no clear path is found, turn around
-    turnLeft();
-    delay(1000); // Adjust delay based on required turn angle
+    // If no clear path is found, move backward
+    Serial.println("No clear path found. Moving backward.");
+    moveBackward();
+    delay(1000); // Adjust delay based on required backward movement time
   } else {
     Serial.println("No obstacle detected. Resuming movement.");
     moveForward(); // Resume forward movement
