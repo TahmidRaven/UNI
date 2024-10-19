@@ -1,0 +1,47 @@
+%\section{Introduction}
+\section{Introduction } 
+
+Globally, Cardiovascular disorders are recognized as the primary cause of mortality, accounting for the loss of millions of lives, annually. It is now necessary to identify heart diseases as early as possible and forecast cardiac risks with high accuracy so that better patient outcomes can be assured and adverse cardiovascular events avoided. The technologies of AI, especially deep learning and natural language processing, have recently gained considerable attention. Interest is increasing in using such deep learning and natural language processing methods for further improvement in cardiac risk prediction models. Parsing through dense medical information and connections that may otherwise remain invisible to more classic approaches can now afford better risk prediction.
+
+\vspace{0.5cm}
+These two major sources of information involve ECG data and electronic health records for assessment. ECGs yield detailed information concerning the electrical activities of the human heart; thus allowing the detection of arrhythmias, ischemia, as well as other cardiovascular conditions. While structured data in EHRs is represented by demographics, diagnosis, medication, and lab results, unstructured data involves clinician notes and cardiology reports. While ECGs represent significant real-time information on the electrical functioning of the heart, EHRs provide a broad overview of a patient's medical history and hence are very much crucial for long-term cardiac risk assessment.
+ 
+\vspace{0.5cm}
+Despite the amount of information in both ECGs and EHRs, most of the existing models for predicting cardiac risk do face a number of limitations. Most of the models are based on either ECG or EHR data alone; there is no integration of both into one holistic view of a patient's cardiovascular health. Besides, the traditional models lack the processing and interpretation of unstructured clinical data in physician notes, which bear important insights. Another possible limitation of the current approaches is small sample sizes, which may limit generalization and robustness in various patient populations. In this regard, the challenge is tackled by proposing a multimodal approach through a combination of DL and NLP techniques to perform an analysis of both ECG signals and EHR data for cardiac risk prediction. 
+\vspace{1.0cm}
+
+\section{Approach }
+Our approach leverages the MIMIC-IV-ECG module, which adds approximately 800,000 diagnostic ECGs to the extensive EHR data available from the MIMIC-IV Clinical Database, utilizing deep learning architectures for processing 12-lead ECG signals and NLP models for analyzing clinical notes and cardiologist reports. It integrates two data modalities into one, enabling researchers to make more precise cardiac risk assessments by permitting the simultaneous analysis of the electrical activities of the human heart, along with a patient's overall medical profile.
+
+\vspace{0.5cm}
+In addition, our model tries to address scalability and efficiency challenges in a real-time clinical setup through optimized computational needs and enhanced interpretability of the model. The research study's objective would be to provide an integrated, reliable, and scalable model for cardiac risk prediction that can be deployed in clinical environments to help with early diagnosis and proactive management of cardiovascular conditions.
+
+\vspace{0.5cm}
+In the subsequent sections, we discuss related work, the research problem, methodology, results, and conclusion of this study, focusing on how our proposed multimodal approach can improve the accuracy and clinical applicability of cardiac risk prediction using DL and NLP techniques.
+\vspace{1.0cm}
+
+\section{Motivation }
+The motivation for this work is the disturbing global burden of cardiovascular affliction, still the major reason for death and taking the lives of millions every year. The traditional risk prediction models mostly suffer from a lack in their accuracy and applicability due in large part to their reliance on either ECG data or EHRs exclusively. This disparity not only limits their effectiveness in clinical settings but also delays intervention, which is very critical for improving patient outcomes. We aim to harness the power of  DL and NLP to develop a more complete and integrated model that encompasses both structured and unstructured data. We therefore try to decode the underlying connection between ECG signals and detailed patient medical history captured through EHRs that might pass on undetected through traditional means. The current study intends to make a good contribution to cardiology by enhancing the accuracy in risk prediction leading to early diagnosis and active management of cardiovascular diseases, reducing the healthcare burden across the world.
+
+
+
+
+% \section{Game Method}
+% After Football, Cricket is the second most popular sports with a fan base of around 2.5 billion (according to Top End Sports) and mostly popular in South Asia, Australia, The Caribbean and UK. In international level Cricket is played in three formats- Test, ODI and T20I cricket. This game is played on a 22 yards clay pitch with 2 sets of stamps, each set with 3 stamps and each set having two bells on top of them. Two batsmen come to pitch with two wooden bats and bowler bowls with a cricket ball which outer part is made of lather. Test Cricket is played Red ball which is slightly heavier than the White bowl played in the limited overs. There is no fixed size of the outfield, but usually its diameter usually varies between 137 meters and 150 meters. In limited over cricket there is a circle of 30 yards around the pitch which work as a field restriction for players. Test cricket is played for 5 days with each team having at most 2 innings. ODI played for 50 overs per innings and T20 played in 20 overs. Each team play with 11 players. A coin toss decides who is going to bat or ball first. In limited over cricket team batting first scores as many run possible before the overs are finished or they all get out. If team batting next score more runs they wins and failure to score required runs in allocated overs or getting all out result in loss for team batting second. Some basic idea how the game is played:
+% Field Restriction: According to the latest rule change in 50 overs cricket, there is only one Power play from over 1-10 with only two fielders outside of the 30 yards circle. Between 11 to 40 overs four fielder are allowed and five allowed outside the 30 yards circle in the final 10 overs. Like the ODI format T20 also have only 1 power play form over 1 to 6 with 2 fielders outside the circle.
+% Scoring Runs: The striking batsman must hit the ball with his bat and must change his position with his partner to score 1 run. Number of runs scored depend on the number of time the batsmen change position. If the batsman hit ball and its goes outside the boundary 4 runs are added and 6 runs are added when the ball fly over the boundary. Batting team gets extra runs form No ball, Leg bye, Bye, Wide, Overthrows and Penalty runs when the ball hits keeper’s helmet or cap lying on the field.
+% Out Types: Batsmen usually get out by being bowled, caught, leg before wicket (LBW), stumped and run out. There are some rare occasion where batsmen get out by hit wicket, intentionally hitting the ball twice, handled the ball, obstructing the field and timed out.
+% Tie match result: If the match is tie, such as both the team scored same runs then there is a rule called super over. Super over played for only one over for each team. Each team can play with two wickets when they are batting and one single bowler when they are bowling. Batting first team set a target and second team chase it.
+% In Test cricket there is no restriction on how many overs a bowler can bowl. But in limited over cricket number of overs bowled by a single bowler is fixed. in ODI's each bowler can bowl up to 10 overs in a match and in T20 cricket bowlers are allowed to bowl only 4 overs each.
+
+% \nomenclature{$ODI$}{One day International}
+% \nomenclature{$T20$}{Twenty Twenty}
+% \nomenclature{$ODI$}{One day International}
+% \nomenclature{$IPL$}{Indian Premier League}
+% \nomenclature{$ODI$}{One day International}
+% \nomenclature{$MR$}{Runs scored by Home team}
+% \nomenclature{$OR$}{Runs scored by the opponent team}
+% \nomenclature{$MRN$}{Home Team Run Rate}
+% \nomenclature{$ORN$}{Opponent Team Run Rate}
+% \nomenclature{$LBW$}{Leg before Wicket}
+
