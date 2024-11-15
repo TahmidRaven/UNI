@@ -1,0 +1,17 @@
+// DSCH 2.7a
+// 11/4/2024 2:59:09 PM
+// F:\21201701_TahmidRaven\dsch2\TahmidRaven\tahmid_not.sch
+
+module tahmid_not( A,Y);
+ input A;
+ output Y;
+ pmos #(17) pmos(Y,vdd,A); // 2.0u 0.12u
+ nmos #(17) nmos(Y,vss,A); // 1.0u 0.12u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 A=~A;
+
+// Simulation parameters
+// A CLK 10 10

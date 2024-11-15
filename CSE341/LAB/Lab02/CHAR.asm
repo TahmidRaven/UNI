@@ -1,0 +1,47 @@
+.MODEL SMALL
+ 
+.STACK 100H
+
+.DATA
+a db 1,2,3,4,5
+b db 5 dup(?)
+.CODE
+MAIN PROC
+
+;iniitialize DS
+
+MOV AX,@DATA
+MOV DS,AX
+ 
+; enter your code here
+
+
+;;\MOV AH, 1        ; COMMAND FOR TAKING INPUT
+;;INT 21H            ; COMMAND FOR TAKING INPUT
+               
+MOV AH, 1
+INT 21H
+MOV BL, AL
+
+INT 21H
+MOV BH, AH
+
+MOV AH, 2
+INT 21H 
+MOV DL, 0DH
+INT 21H
+MOV DL, 0AH
+INT 21H
+
+; DISPLAY CHAR
+MOV DL, BL 
+INT 21H
+
+
+;exit to DOS
+               
+MOV AX,4C00H
+INT 21H
+
+MAIN ENDP
+    END MAIN

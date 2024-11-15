@@ -1,0 +1,43 @@
+USER SYMBOL by DSCH 2.7a
+DATE 11/4/2024 3:56:19 PM
+SYM  #tahmid_latchfinal_symb
+BB(0,0,40,30)
+TITLE 10 -2  #tahmid_latchfinal_symb
+MODEL 6000
+REC(5,5,30,20)
+PIN(0,20,0.00,0.00)CLK
+PIN(0,10,0.00,0.00)D
+PIN(40,10,2.00,1.00)Q'
+PIN(40,20,2.00,1.00)Q
+LIG(0,20,5,20)
+LIG(0,10,5,10)
+LIG(35,10,40,10)
+LIG(35,20,40,20)
+LIG(5,5,5,25)
+LIG(5,5,35,5)
+LIG(35,5,35,25)
+LIG(35,25,5,25)
+VLG module tahmid_latchfinal( CLK,D,Q',Q);
+VLG  input CLK,D;
+VLG  output Q',Q;
+VLG  wire w8,w9,w10,w11;
+VLG  pmos #(40) pmos_ta1(w5,vdd,w4); //  
+VLG  nmos #(12) nmos_ta2(w8,vss,CLK); //  
+VLG  pmos #(40) pmos_ta3(w5,vdd,CLK); //  
+VLG  nmos #(40) nmos_ta4(w5,w8,w4); //  
+VLG  pmos #(40) pmos_ta5(w7,vdd,D); //  
+VLG  nmos #(12) nmos_ta6(w9,vss,CLK); //  
+VLG  pmos #(40) pmos_ta7(w7,vdd,CLK); //  
+VLG  nmos #(40) nmos_ta8(w7,w9,D); //  
+VLG  pmos #(47) pmos_ta9(Q',vdd,w5); //  
+VLG  nmos #(12) nmos_ta10(w10,vss,Q); //  
+VLG  pmos #(47) pmos_ta11(Q',vdd,Q); //  
+VLG  nmos #(47) nmos_ta12(Q',w10,w5); //  
+VLG  pmos #(47) pmos_ta13(Q,vdd,Q'); //  
+VLG  nmos #(12) nmos_ta14(w11,vss,w7); //  
+VLG  pmos #(47) pmos_ta15(Q,vdd,w7); //  
+VLG  nmos #(47) nmos_ta16(Q,w11,Q'); //  
+VLG  pmos #(30) pmos_ta17(w4,vdd,D); //  
+VLG  nmos #(30) nmos_ta18(w4,vss,D); //  
+VLG endmodule
+FSYM

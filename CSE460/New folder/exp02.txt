@@ -1,0 +1,13 @@
+module Exp2(A, B, f1, f2, f4, f4, f5);
+
+    input A,B, C;
+    output f1,f2,f3,f4,f5
+
+    assign f1 = ~(A&B);
+    assign f2 = A|B;
+    assign f3 = ~A;
+    assign f4 = A^B;
+    assign f5 = (A&B) | (B&C);
+
+
+endmodule

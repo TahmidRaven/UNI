@@ -1,0 +1,21 @@
+// DSCH 2.7a
+// 11/4/2024 3:18:17 PM
+// F:\21201701_TahmidRaven\dsch2\TahmidRaven\tahmid_nand.sch
+
+module tahmid_nand( A,B,Y);
+ input A,B;
+ output Y;
+ pmos #(24) pmos(Y,vdd,B); // 2.0u 0.12u
+ nmos #(10) nmos(w4,vss,A); // 1.0u 0.12u
+ pmos #(24) pmos(Y,vdd,A); // 2.0u 0.12u
+ nmos #(24) nmos(Y,w4,B); // 1.0u 0.12u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 A=~A;
+#2000 B=~B;
+
+// Simulation parameters
+// A CLK 10 10
+// B CLK 20 20

@@ -1,0 +1,36 @@
+// DSCH 2.7a
+// 11/4/2024 3:56:19 PM
+// F:\21201701_TahmidRaven\dsch2\TahmidRaven\tahmid_latchfinal.sch
+
+module tahmid_latchfinal( CLK,D,Q',Q);
+ input CLK,D;
+ output Q',Q;
+ wire w8,w9,w10,w11;
+ pmos #(40) pmos_ta1(w5,vdd,w4); //  
+ nmos #(12) nmos_ta2(w8,vss,CLK); //  
+ pmos #(40) pmos_ta3(w5,vdd,CLK); //  
+ nmos #(40) nmos_ta4(w5,w8,w4); //  
+ pmos #(40) pmos_ta5(w7,vdd,D); //  
+ nmos #(12) nmos_ta6(w9,vss,CLK); //  
+ pmos #(40) pmos_ta7(w7,vdd,CLK); //  
+ nmos #(40) nmos_ta8(w7,w9,D); //  
+ pmos #(47) pmos_ta9(Q',vdd,w5); //  
+ nmos #(12) nmos_ta10(w10,vss,Q); //  
+ pmos #(47) pmos_ta11(Q',vdd,Q); //  
+ nmos #(47) nmos_ta12(Q',w10,w5); //  
+ pmos #(47) pmos_ta13(Q,vdd,Q'); //  
+ nmos #(12) nmos_ta14(w11,vss,w7); //  
+ pmos #(47) pmos_ta15(Q,vdd,w7); //  
+ nmos #(47) nmos_ta16(Q,w11,Q'); //  
+ pmos #(30) pmos_ta17(w4,vdd,D); //  
+ nmos #(30) nmos_ta18(w4,vss,D); //  
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 CLK=~CLK;
+#2000 D=~D;
+
+// Simulation parameters
+// CLK CLK 10 10
+// D CLK 20 20
