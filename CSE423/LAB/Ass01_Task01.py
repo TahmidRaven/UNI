@@ -1,12 +1,11 @@
+## TASK 01 ###
 
+# INSTRUCTIONS :-
 
-
-### TASK 01 ###
-
-# instructions :-
-# keep pressing 'd' or 'n' to change the skin 
+# keep pressing 'D'= Day or 'N'= Night to change the skin 
 # keep pressing up or down arrow keys to change rain density
 # keep pressing left or right arrowkeys to change rain direction 
+# Esc key to exit
 
 
 from OpenGL.GL import *
@@ -152,33 +151,52 @@ def rain_ani(value):
     glutTimerFunc(16, rain_ani, 0)  # 60 FPS
 
  
+
 def keyboard(key, x, y):
     global rain_direction_angle, bg_color, is_daytime
 
-    if key == b'\x1b':   
+    if key == b'\x1b':  # Escape key to exit
+        print("ESC pressed: Exiting program.")
         glutLeaveMainLoop()
 
-    if key == b'd':   
+    elif key == b'd':  # Daytime mode
         bg_color = min(1.0, bg_color + 0.01)
         is_daytime = True
-    elif key == b'n':   
+        print("Switching to daytime mode.")
+
+    elif key == b'n':  # Nighttime mode
         bg_color = max(0.0, bg_color - 0.01)
         is_daytime = False
+        print("Switching to nighttime mode.")
 
- 
+
 def special_input(key, x, y):
     global rain_direction_angle, raindrops, rain_density
 
-    if key == GLUT_KEY_LEFT:
+    if key == GLUT_KEY_LEFT:  # left
         rain_direction_angle -= 0.05
-    elif key == GLUT_KEY_RIGHT:
+        print("Rotating rain to the left.")
+
+    elif key == GLUT_KEY_RIGHT:  # right
         rain_direction_angle += 0.05
-    elif key == GLUT_KEY_UP:
-        rain_density = min(300, rain_density + 10)  #  density, max 
-        init_raindrops()
-    elif key == GLUT_KEY_DOWN:
-        rain_density = max(10, rain_density - 10)  #  density, min 
-        init_raindrops()
+        print("Rotating rain to the right.")
+
+    elif key == GLUT_KEY_UP:   
+        if rain_density < 300:
+            rain_density += 10
+            init_raindrops()
+            print(f"Increasing rain density to {rain_density}.")
+        else:
+            print("Rain density is already at maximum.")
+
+    elif key == GLUT_KEY_DOWN:  
+        if rain_density > 10:
+            rain_density -= 10
+            init_raindrops()
+            print(f"Decreasing rain density to {rain_density}.")
+        else:
+            print("Rain density is already at minimum.")
+
 
  
 def main():

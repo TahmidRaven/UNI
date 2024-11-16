@@ -1,11 +1,13 @@
+
 ### TASK 02 ###
 
-## Instuctions:
-# right mouse = generate stars 
-# left mouse = toggle blink
-# space = freeze/unfreeze
-# up arrow = increase speed
-# down arrow = decrease speed
+# # ## Instuctions:
+# # # right mouse = generate stars 
+# # # left mouse = toggle blink
+# # # space = freeze/unfreeze
+# # # Escape = exit
+# # # up arrow = increase speed
+# # # down arrow = decrease speed
 
 
 from OpenGL.GL import *
@@ -21,7 +23,7 @@ speed = 0.2
 colors = [(1, 0, 0), (0, 1, 0), (0, 0, 1), (1, 1, 0), (0, 1, 1), (1, 0, 1)]
 
  
-class Point:
+class STAR_CLASS:
     def __init__(self, x, y):
         self.x = x
         self.y = y
@@ -77,12 +79,12 @@ def display():
     glutSwapBuffers()
 
  
-def update(value):
+def updated_star(value):
     if not is_frozen:
         for point in stars:
             point.update_position()
     glutPostRedisplay()
-    glutTimerFunc(16, update, 0)  # 60 FPS
+    glutTimerFunc(16, updated_star, 0)  # 60 FPS
 
  
 def blink_timer(value):
@@ -103,26 +105,37 @@ def mouse(button, state, x, y):
         py = -(y - window_height / 2) / (window_height / Amazing_box)
 
         if button == GLUT_RIGHT_BUTTON:  # Right-click to spawn a new point
-            stars.append(Point(px, py))
+            stars.append(STAR_CLASS(px, py))
+            print(f"New star in the sky")
         elif button == GLUT_LEFT_BUTTON:  # Left-click to toggle blink
             blink_timer(0)
+            print(f"You made the star blink")
+            
 
  
 def keyboard(key, x, y):
     global is_frozen, speed
     if key == b' ':
         is_frozen = not is_frozen  # Toggle freeze/unfreeze
+        print(f"You've the power to freeze the sky")
+        
     elif key == b'\x1b':  # Escape key to exit
         glutLeaveMainLoop()
+        print(f"You're done playing with stars")
+        
 
  
 def special_input(key, x, y):
     global speed
     if not is_frozen:
         if key == GLUT_KEY_UP:
-            speed += 0.05  
+            speed += 0.05
+            print(f"You're making the stars go faster")
+              
         elif key == GLUT_KEY_DOWN:
             speed = max(0.05, speed - 0.05) 
+            print(f"You're making the stars go slower")
+            
             # Min=> speed of 0.05 to prevent stopping
             
         for point in stars:
@@ -138,7 +151,7 @@ def main():
 
  
     glutDisplayFunc(display)
-    glutTimerFunc(0, update, 0)
+    glutTimerFunc(0, updated_star, 0)
     glutMouseFunc(mouse)
     glutKeyboardFunc(keyboard)
     glutSpecialFunc(special_input)
