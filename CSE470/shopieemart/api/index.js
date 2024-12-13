@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 import userRouter from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
 import authAdminRouter from './routes/auth_admin.route.js';
+import authSellerRouter from './routes/auth_seller.route.js';
+
 
 dotenv.config();
 
@@ -28,6 +30,7 @@ app.use('/api/user', userRouter);
 app.use('/api/auth', authRouter);
 
 app.use('/api/auth_admin', authAdminRouter);
+app.use('/api/auth_seller', authSellerRouter);
 
 
 app.use((err, req, res, next) => {

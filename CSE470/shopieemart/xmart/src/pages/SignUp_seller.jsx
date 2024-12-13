@@ -1,7 +1,8 @@
+
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-export default function SignUp() {
+export default function SignUp_seller() {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -18,7 +19,7 @@ export default function SignUp() {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await fetch('/api/auth/signup', {
+      const res = await fetch('/api/auth/signup_seller', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -33,7 +34,7 @@ export default function SignUp() {
       }
       setLoading(false);
       setError(null);
-      navigate('/signin');
+      navigate('/signin_seller');
     } catch (error) {
       setLoading(false);
       setError(error.message);
@@ -44,7 +45,7 @@ export default function SignUp() {
     <div className="p-6 min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-800 via-lavender-600 to-purple-600">
       <div className="w-full max-w-lg bg-white/20 backdrop-blur-lg p-8 rounded-lg shadow-lg">
         <h1 className="text-4xl text-center font-bold text-white mb-8">
-          Create Your Account
+          Create Your Seller Account
         </h1>
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Username Field */}
@@ -110,7 +111,7 @@ export default function SignUp() {
         {/* Footer */}
         <div className="flex justify-center gap-2 mt-6">
           <p className="text-white text-sm">Already have an account?</p>
-          <Link to="/signin">
+          <Link to="/signin_seller">
             <span className="text-lavender-200 text-sm font-semibold hover:underline">
               Sign In
             </span>

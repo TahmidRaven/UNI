@@ -1,12 +1,11 @@
-
 import { Link } from 'react-router-dom';
 
-export default function SignIn_admin() {
+export default function SignIn_seller() {
   return (
     <div className="p-6 min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-800 via-lavender-600 to-purple-600">
       <div className="w-full max-w-lg bg-white/20 backdrop-blur-lg p-8 rounded-lg shadow-lg">
         <h1 className="text-4xl text-center font-bold text-white mb-8">
-          Sign In to Your Admin Account
+          Sign In to Your Account
         </h1>
         <form className="space-y-6">
           {/* Email Field */}
@@ -52,7 +51,7 @@ export default function SignIn_admin() {
         {/* Footer */}
         <div className="flex justify-center gap-2 mt-6">
           <p className="text-white text-sm">Don't have an account?</p>
-          <Link to="/signup_admin">
+          <Link to="/signup_seller">
             <span className="text-lavender-200 text-sm font-semibold hover:underline">
               Sign Up
             </span>

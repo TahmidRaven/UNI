@@ -1,10 +1,10 @@
-import Admin from '../models/admin.model.js';
+import Seller from '../models/seller.model.js';
 import bcryptjs from 'bcryptjs';
 
-export const signupAdmin = async (req, res, next) => {
+export const signupSeller = async (req, res, next) => {
   const { username, email, password } = req.body;
   const hashedPassword = bcryptjs.hashSync(password, 10);
-  const newUser = new Admin({ username, email, password: hashedPassword });
+  const newUser = new Seller({ username, email, password: hashedPassword });
 
   try {
     await newUser.save();

@@ -10,6 +10,10 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import SignUp_admin from './pages/SignUp_admin';
 import SignIn_admin from './pages/SignIn_admin';
+import SignUp_seller from './pages/SignUp_seller';
+import SignIn_seller from './pages/SignIn_seller';
+ 
+
  
  
 export default function App() {
@@ -28,7 +32,8 @@ export default function App() {
       <Route path="/signup_admin" element={<SignUp_admin />} />
       <Route path="/signin_admin" element={<SignIn_admin />} />
 
-
+      <Route path="/signup_seller" element={<SignUp_seller />} />
+      <Route path="/signin_seller" element={<SignIn_seller />} />
       {/* <Route path="/signup_seller" element={<SignUp_seller />} /> */}
     </Routes>
 
